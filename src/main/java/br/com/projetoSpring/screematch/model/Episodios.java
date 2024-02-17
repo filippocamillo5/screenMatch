@@ -1,6 +1,7 @@
 package br.com.projetoSpring.screematch.model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 public class Episodios {
     private Integer temporada;
@@ -13,8 +14,11 @@ public class Episodios {
         this.temporada = temporada;
         this.titulo = episodio.titulo();
         this.capitulo = Integer.valueOf(episodio.capitulo());
-        this.dataLancamento = LocalDate.parse(episodio.dataLancamento());
-
+        try {
+            this.dataLancamento = LocalDate.parse(episodio.dataLancamento());
+        }catch (DateTimeParseException e){
+            this.dataLancamento = null;
+        }
         try {
             this.avaliacao = Double.valueOf(episodio.avaliacao());
         }catch (NumberFormatException e){

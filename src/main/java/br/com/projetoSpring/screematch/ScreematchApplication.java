@@ -16,6 +16,7 @@ public class ScreematchApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		Principal principal = new Principal();
 		principal.exibeMenu();
-
+//		Teste teste = new Teste();
+//		teste.testeDois();
 	}
 }
